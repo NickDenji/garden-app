@@ -9,6 +9,11 @@ plant_advice_dict = {
     "vegetable": "Keep an eye out for pests!"
 }
 
+season_recommendations = {
+    "summer": ["tomatoes", "peppers", "cucumbers"],
+    "winter": ["kale", "spinach", "broccoli"]
+}
+
 
 def plant_advice(season, plant_type):
     """
@@ -20,12 +25,26 @@ def plant_advice(season, plant_type):
     return advice
 
 
+def recommend_plants(season):
+    """
+    Returns recommended plants for a given season.
+    """
+    plants = season_recommendations.get(season)
+    
+    if plants:
+        return "Recommended plants: " + ", ".join(plants)
+    else:
+        return "No plant recommendations for this season."
+
+
 # --- Program execution ---
 season = input("Enter the current season: ").lower()
 plant_type = input("Enter the plant type: ").lower()
 
 result = plant_advice(season, plant_type)
+
 print(result)
+print(recommend_plants(season))
 
 # TODO: Examples of possible features to add:
 # - Add detailed comments explaining each block of code.
