@@ -1,34 +1,29 @@
+# Dictionaries to store advice
+season_advice = {
+    "summer": "Water your plants regularly and provide some shade.\n",
+    "winter": "Protect your plants from frost with covers.\n"
+}
+
+plant_advice_dict = {
+    "flower": "Use fertiliser to encourage blooms.",
+    "vegetable": "Keep an eye out for pests!"
+}
+
+
 def plant_advice(season, plant_type):
     """
     Returns gardening advice based on season and plant type.
     """
-
     advice = ""
-
-    # Advice based on season
-    if season == "summer":
-        advice += "Water your plants regularly and provide some shade.\n"
-    elif season == "winter":
-        advice += "Protect your plants from frost with covers.\n"
-    else:
-        advice += "No advice for this season.\n"
-
-    # Advice based on plant type
-    if plant_type == "flower":
-        advice += "Use fertiliser to encourage blooms."
-    elif plant_type == "vegetable":
-        advice += "Keep an eye out for pests!"
-    else:
-        advice += "No advice for this type of plant."
-
+    advice += season_advice.get(season, "No advice for this season.\n")
+    advice += plant_advice_dict.get(plant_type, "No advice for this type of plant.")
     return advice
 
 
-# Get user input
+# --- Program execution ---
 season = input("Enter the current season: ").lower()
 plant_type = input("Enter the plant type: ").lower()
 
-# Call function and print result
 result = plant_advice(season, plant_type)
 print(result)
 
